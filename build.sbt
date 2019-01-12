@@ -1,5 +1,5 @@
 
-name := """play-scala-starter-example"""
+name := """scala_play"""
 
 version := "1.0-SNAPSHOT"
 
@@ -18,6 +18,7 @@ libraryDependencies += "com.h2database" % "h2" % "1.4.197"
 organization := "be.objectify"
 
 libraryDependencies ++= Seq(
+  "org.mindrot" % "jbcrypt" % "0.3m",
   "be.objectify" %% "deadbolt-scala" % "2.6.0"
 )
 

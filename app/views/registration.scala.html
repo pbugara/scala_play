@@ -1,0 +1,25 @@
+@import scala.collection.mutable
+
+@(registrationForm: Form[models.RegistrationFormData], errors: mutable.HashMap[String, String])(implicit request: RequestHeader, messagesProvider: MessagesProvider)
+
+@import helper._
+@main("Zarejestruj się") {
+    <div class="container">
+        <h2><strong>Zarejestruj się</strong><br/></h2>
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                @helper.form(action = routes.UserController.addUser()) {
+                    @helper.CSRF.formField
+                    @helper.inputText(registrationForm("firstName"))
+                    @helper.inputText(registrationForm("lastName"))
+                    @helper.inputText(registrationForm("mobile"))
+                    @helper.inputText(registrationForm("email"))
+                    @helper.inputPassword(registrationForm("password"))
+                    <div class="form-check">
+                        <button type="submit" class="addButton">Zarejestruj się</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}

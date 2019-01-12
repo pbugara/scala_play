@@ -9,12 +9,16 @@ GET         /logout                           @controllers.UserController.logout
 GET         /registration                     @controllers.UserController.registration
 POST        /add                              @controllers.UserController.addUser
 POST        /signIn                           @controllers.UserController.signIn
-GET         /delete/:id                       @controllers.UserController.deleteUser(id : Long)
+#GET         /delete/:id                       @controllers.UserController.deleteUser(id : Long)
 GET         /login                            @controllers.UserController.login
+GET         /addBook                          @controllers.UserController.newBook
 GET         /userBooks                        @controllers.UserController.userBooks
 POST        /addBook                          @controllers.UserController.addBook
 POST        /editBook                         @controllers.UserController.editBook
+GET         /bookToEdit/:id                   @controllers.UserController.getBookToEdit(id: Long)
 GET         /deleteBook/:id                   @controllers.UserController.deleteBook(id : Long)
+GET         /changePassword                   @controllers.UserController.changePasswordView
+POST        /changePassword                   @controllers.UserController.changePassword
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(file)
