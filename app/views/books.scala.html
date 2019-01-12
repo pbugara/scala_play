@@ -1,0 +1,40 @@
+@(books: Seq[Book])(implicit request: RequestHeader, messagesProvider: MessagesProvider)
+@authorizedMain("DSL - projekt") {
+    <div class="container">
+        <h1>Moje książki</h1>
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 container">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 row">
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <h4>Tytuł</h4>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <h4>Kategoria</h4>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <h4>Edytuj</h4>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <h4>Usuń</h4>
+                    </div>
+                </div>
+                @for(book <- books) {
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 row">
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            <label>@book.title</label>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            <label>@book.category</label>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            <a href="bookToEdit/@book.id">Edytuj</a>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            <a href="deleteBook/@book.id">Usuń</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}

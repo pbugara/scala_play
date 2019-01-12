@@ -1,0 +1,19 @@
+@(bookForm: Form[models.BookFormData])(implicit request: RequestHeader, messagesProvider: MessagesProvider)
+@authorizedMain("DSL - projekt") {
+    <div class="container">
+        <h1>Edytuj książkę</h1>
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                @helper.form(action = routes.UserController.editBook()) {
+                    @helper.CSRF.formField
+                    <input type="hidden" hidden="hidden" name="id" id="id" value="@bookForm("id").value" />
+                    @helper.inputText(bookForm("title"))
+                    @helper.inputText(bookForm("category"))
+                    <div class="form-check">
+                        <button type="submit" class="addButton">Edytuj</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
